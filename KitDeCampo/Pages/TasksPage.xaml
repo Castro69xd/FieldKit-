@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="KitDeCampo.Pages.TasksPage"
+    Title="Tasks / Tareas"
+    BackgroundColor="#F4F6F8">
+
+    <Grid Padding="20" RowDefinitions="Auto,*,Auto,Auto" RowSpacing="15">
+
+        <!-- Visit Info Header Card -->
+        <Border
+            Grid.Row="0"
+            Padding="16"
+            StrokeShape="RoundRectangle 12"
+            StrokeThickness="0"
+            BackgroundColor="White">
+            <VerticalStackLayout Spacing="6">
+                <Label
+                    x:Name="CustomerLabel"
+                    FontSize="22"
+                    FontAttributes="Bold"
+                    TextColor="#0F172A" />
+
+                <HorizontalStackLayout Spacing="15">
+                    <Label
+                        x:Name="StatusLabel"
+                        FontSize="14"
+                        FontAttributes="Bold"
+                        TextColor="#2563EB" />
+
+                    <Label
+                        x:Name="TimeLabel"
+                        FontSize="14"
+                        TextColor="#64748B" />
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+        </Border>
+
+        <!-- Tasks Checklist -->
+        <CollectionView Grid.Row="1" x:Name="TasksCollection">
+
+            <CollectionView.EmptyView>
+                <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="Center" Spacing="6">
+                    <Label
+                        Text="No tasks yet / Sin tareas aún"
+                        FontSize="18"
+                        FontAttributes="Bold"
+                        HorizontalOptions="Center"
+                        TextColor="#64748B" />
+
+                    <Label
+                        Text="Add a task below / Agrega una tarea abajo"
+                        FontSize="13"
+                        HorizontalOptions="Center"
+                        TextColor="#94A3B8" />
+                </VerticalStackLayout>
+            </CollectionView.EmptyView>
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Border
+                        Margin="0,4"
+                        Padding="10,6"
+                        StrokeShape="RoundRectangle 10"
+                        StrokeThickness="0"
+                        BackgroundColor="White">
+                        <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="10" VerticalOptions="Center">
+                            <CheckBox
+                                Grid.Column="0"
+                                IsChecked="{Binding IsDone}"
+                                CheckedChanged="Task_CheckedChanged"
+                                Color="#2563EB" />
+
+                            <Label
+                                Grid.Column="1"
+                                Text="{Binding Descripcion}"
+                                VerticalOptions="Center"
+                                FontSize="15"
+                                TextColor="#334155" />
+
+                            <Border
+                                Grid.Column="2"
+                                Padding="8,4"
+                                StrokeShape="RoundRectangle 6"
+                                StrokeThickness="0"
+                                BackgroundColor="#F1F5F9"
+                                VerticalOptions="Center">
+                                <Label
+                                    Text="{Binding Minutos, StringFormat='{0} min'}"
+                                    FontSize="12"
+                                    FontAttributes="Bold"
+                                    TextColor="#475569" />
+                            </Border>
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+
+        </CollectionView>
+
+        <!-- New Task Form Section -->
+        <Grid Grid.Row="2" ColumnDefinitions="*,80,Auto" ColumnSpacing="8">
+            <Border
+                Grid.Column="0"
+                Padding="10,0"
+                StrokeShape="RoundRectangle 8"
+                StrokeThickness="0"
+                BackgroundColor="White">
+                <Entry
+                    x:Name="TaskEntry"
+                    Placeholder="New task / Tarea"
+                    FontSize="14"
+                    TextColor="#0F172A" />
+            </Border>
+
+            <Border
+                Grid.Column="1"
+                Padding="8,0"
+                StrokeShape="RoundRectangle 8"
+                StrokeThickness="0"
+                BackgroundColor="White">
+                <Entry
+                    x:Name="MinutesEntry"
+                    Placeholder="Min"
+                    Keyboard="Numeric"
+                    HorizontalTextAlignment="Center"
+                    FontSize="14"
+                    TextColor="#0F172A" />
+            </Border>
+
+            <Button
+                Grid.Column="2"
+                Text="Add / +"
+                Clicked="AddTask_Clicked"
+                BackgroundColor="#2563EB"
+                TextColor="White"
+                FontAttributes="Bold"
+                CornerRadius="8"
+                HeightRequest="45" />
+        </Grid>
+
+        <!-- Navigation Button to Summary -->
+        <Button
+            Grid.Row="3"
+            Text="View Summary / Ver Resumen"
+            Clicked="Summary_Clicked"
+            BackgroundColor="#0F172A"
+            TextColor="White"
+            FontAttributes="Bold"
+            CornerRadius="10"
+            HeightRequest="52" />
+
+    </Grid>
+</ContentPage>
