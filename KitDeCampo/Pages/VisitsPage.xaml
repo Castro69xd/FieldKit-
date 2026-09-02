@@ -4,48 +4,44 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="KitDeCampo.Pages.VisitsPage"
     Title="Visits / Visitas"
-    BackgroundColor="#F4F6F8">
+    BackgroundColor="#3B0B11">
 
     <Grid Padding="20" RowDefinitions="Auto,*,Auto" RowSpacing="15">
 
-        <!-- Encabezado Bilingüe -->
+        <!-- Header -->
         <VerticalStackLayout Grid.Row="0" Spacing="4">
             <Label
                 Text="Field Tech / Kit de Campo"
                 FontSize="24"
                 FontAttributes="Bold"
-                TextColor="#1E293B" />
+                TextColor="#D4AF37" />
 
             <Label
                 Text="Service Visits / Visitas de Servicio"
                 FontSize="14"
-                TextColor="#64748B" />
+                TextColor="#E6C665" />
         </VerticalStackLayout>
 
-        <!-- Lista de Visitas -->
+        <!-- Visits List -->
         <CollectionView
             Grid.Row="1"
             x:Name="VisitsCollection"
             SelectionMode="None">
 
             <CollectionView.EmptyView>
-                <VerticalStackLayout
-                    VerticalOptions="Center"
-                    HorizontalOptions="Center"
-                    Spacing="8">
-
+                <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="Center" Spacing="8">
                     <Label
                         Text="No visits yet / Sin visitas aún"
                         FontSize="18"
                         FontAttributes="Bold"
                         HorizontalOptions="Center"
-                        TextColor="#64748B" />
+                        TextColor="#E6C665" />
 
                     <Label
                         Text="Create your first service visit / Crea tu primera visita"
                         FontSize="13"
                         HorizontalOptions="Center"
-                        TextColor="#94A3B8" />
+                        TextColor="#D4AF37" />
                 </VerticalStackLayout>
             </CollectionView.EmptyView>
 
@@ -55,43 +51,39 @@
                         Padding="16"
                         Margin="0,6"
                         StrokeShape="RoundRectangle 12"
-                        StrokeThickness="0"
-                        BackgroundColor="White">
+                        Stroke="#D4AF37"
+                        StrokeThickness="1"
+                        BackgroundColor="#54121B">
 
-                        <!-- Evento para tocar la tarjeta y ver la visita -->
                         <Border.GestureRecognizers>
                             <TapGestureRecognizer Tapped="OnVisitSelected" />
                         </Border.GestureRecognizers>
 
                         <Grid ColumnDefinitions="*,Auto" RowDefinitions="Auto,Auto,Auto" RowSpacing="4">
 
-                            <!-- Nombre del Cliente -->
                             <Label
                                 Grid.Row="0"
                                 Grid.Column="0"
                                 Text="{Binding NombreCliente}"
                                 FontSize="18"
                                 FontAttributes="Bold"
-                                TextColor="#0F172A" />
+                                TextColor="#FFFFFF" />
 
-                            <!-- Fecha -->
                             <Label
                                 Grid.Row="1"
                                 Grid.Column="0"
                                 Text="{Binding Fecha, StringFormat='{0:MMM dd, yyyy}'}"
                                 FontSize="13"
-                                TextColor="#64748B" />
+                                TextColor="#E6C665" />
 
-                            <!-- Tiempo Total -->
                             <Label
                                 Grid.Row="2"
                                 Grid.Column="0"
                                 Text="{Binding TiempoTotal, StringFormat='Total: {0} min'}"
                                 FontSize="13"
                                 FontAttributes="Bold"
-                                TextColor="#2563EB" />
+                                TextColor="#D4AF37" />
 
-                            <!-- Badge de Estado -->
                             <Border
                                 Grid.Row="0"
                                 Grid.RowSpan="3"
@@ -99,13 +91,14 @@
                                 VerticalOptions="Center"
                                 Padding="10,5"
                                 StrokeShape="RoundRectangle 8"
-                                StrokeThickness="0"
-                                BackgroundColor="#E2E8F0">
+                                Stroke="#D4AF37"
+                                StrokeThickness="1"
+                                BackgroundColor="#3B0B11">
                                 <Label
                                     Text="{Binding Estado}"
                                     FontSize="12"
                                     FontAttributes="Bold"
-                                    TextColor="#334155" />
+                                    TextColor="#D4AF37" />
                             </Border>
 
                         </Grid>
@@ -115,13 +108,13 @@
 
         </CollectionView>
 
-        <!-- Botón para Agregar Nueva Visita -->
+        <!-- New Visit Button -->
         <Button
             Grid.Row="2"
             Text="+ New Visit / Nueva Visita"
             Clicked="NewVisit_Clicked"
-            BackgroundColor="#2563EB"
-            TextColor="White"
+            BackgroundColor="#D4AF37"
+            TextColor="#200508"
             FontAttributes="Bold"
             CornerRadius="10"
             HeightRequest="52" />

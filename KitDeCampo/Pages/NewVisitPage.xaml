@@ -4,54 +4,56 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="KitDeCampo.Pages.NewVisitPage"
     Title="New Visit / Nueva Visita"
-    BackgroundColor="#F4F6F8">
+    BackgroundColor="#3B0B11">
 
     <ScrollView>
         <VerticalStackLayout Padding="20" Spacing="20">
 
-            <!-- Title Header -->
             <Label
                 Text="New Service Visit / Nueva Visita"
                 FontSize="22"
                 FontAttributes="Bold"
-                TextColor="#1E293B" />
+                TextColor="#D4AF37" />
 
-            <!-- Customer Name Section -->
+            <!-- Customer -->
             <VerticalStackLayout Spacing="6">
                 <Label
                     Text="Customer Name / Nombre del Cliente"
                     FontSize="14"
                     FontAttributes="Bold"
-                    TextColor="#334155" />
+                    TextColor="#E6C665" />
 
                 <Border
-                    BackgroundColor="White"
+                    BackgroundColor="#54121B"
+                    Stroke="#D4AF37"
+                    StrokeThickness="1"
                     StrokeShape="RoundRectangle 10"
-                    StrokeThickness="0"
                     Padding="10,2">
                     <Entry
                         x:Name="CustomerEntry"
                         Placeholder="e.g. ACME Corp"
-                        TextColor="#0F172A" />
+                        PlaceholderColor="#A38550"
+                        TextColor="#FFFFFF" />
                 </Border>
             </VerticalStackLayout>
 
-            <!-- Visit Date Section -->
+            <!-- Date -->
             <VerticalStackLayout Spacing="6">
                 <Label
                     Text="Visit Date / Fecha de Visita"
                     FontSize="14"
                     FontAttributes="Bold"
-                    TextColor="#334155" />
+                    TextColor="#E6C665" />
 
                 <Border
-                    BackgroundColor="White"
+                    BackgroundColor="#54121B"
+                    Stroke="#D4AF37"
+                    StrokeThickness="1"
                     StrokeShape="RoundRectangle 10"
-                    StrokeThickness="0"
                     Padding="10,2">
                     <DatePicker
                         x:Name="VisitDatePicker"
-                        TextColor="#0F172A" />
+                        TextColor="#FFFFFF" />
                 </Border>
             </VerticalStackLayout>
 
@@ -59,8 +61,8 @@
             <Button
                 Text="Create Visit / Crear Visita"
                 Clicked="CreateVisit_Clicked"
-                BackgroundColor="#2563EB"
-                TextColor="White"
+                BackgroundColor="#D4AF37"
+                TextColor="#200508"
                 FontAttributes="Bold"
                 CornerRadius="10"
                 HeightRequest="52"

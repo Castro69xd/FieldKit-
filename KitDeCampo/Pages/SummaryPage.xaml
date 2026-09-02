@@ -3,24 +3,25 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="KitDeCampo.Pages.SummaryPage"
-    Title="Service Summary"
-    BackgroundColor="#F4F6F8">
+    Title="Summary / Resumen"
+    BackgroundColor="#3B0B11">
 
     <ScrollView>
         <VerticalStackLayout Padding="20" Spacing="20">
 
             <!-- Title Header -->
             <Label
-                Text="Service Summary"
-                FontSize="24"
+                Text="Service Summary / Resumen del Servicio"
+                FontSize="22"
                 FontAttributes="Bold"
-                TextColor="#1E293B" />
+                TextColor="#D4AF37" />
 
-            <!-- Card Container for Summary -->
+            <!-- Card Container -->
             <Border
-                BackgroundColor="White"
+                BackgroundColor="#54121B"
+                Stroke="#D4AF37"
+                StrokeThickness="1"
                 StrokeShape="RoundRectangle 12"
-                StrokeThickness="0"
                 Padding="15">
                 <Editor
                     x:Name="SummaryEditor"
@@ -28,26 +29,28 @@
                     AutoSize="TextChanges"
                     MinimumHeightRequest="280"
                     FontSize="14"
-                    TextColor="#334155"
-                    BackgroundColor="Transparent" />
+                    TextColor="#FFFFFF"
+                    BackgroundColor="#54121B" />
             </Border>
 
             <!-- Buttons -->
             <VerticalStackLayout Spacing="12">
                 <Button
-                    Text="Copy Summary"
+                    Text="Copy Summary / Copiar Resumen"
                     Clicked="CopySummary_Clicked"
-                    BackgroundColor="#2563EB"
-                    TextColor="White"
+                    BackgroundColor="#D4AF37"
+                    TextColor="#200508"
                     FontAttributes="Bold"
                     CornerRadius="10"
                     HeightRequest="50" />
 
                 <Button
-                    Text="Share Summary"
+                    Text="Share Summary / Compartir Resumen"
                     Clicked="ShareSummary_Clicked"
-                    BackgroundColor="#0F172A"
-                    TextColor="White"
+                    BackgroundColor="#54121B"
+                    BorderColor="#D4AF37"
+                    BorderWidth="1"
+                    TextColor="#D4AF37"
                     FontAttributes="Bold"
                     CornerRadius="10"
                     HeightRequest="50" />
