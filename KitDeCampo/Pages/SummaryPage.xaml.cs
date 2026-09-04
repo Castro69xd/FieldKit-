@@ -6,12 +6,16 @@ namespace KitDeCampo.Pages;
 public partial class SummaryPage : ContentPage
 {
     private readonly Visite visit;
+    private Editor? _summaryEditor;
 
     public SummaryPage(DataService dataService, Visite visit)
     {
         InitializeComponent();
+        // Resuelve el acceso al control XAML sin depender del campo generado
+        _summaryEditor = this.FindByName<Editor>("SummaryEditor");
         this.visit = visit;
-        SummaryEditor.Text = GenerateSummary();
+        if (_summaryEditor != null)
+            _summaryEditor.Text = GenerateSummary();
     }
 
     private string GenerateSummary()
@@ -52,15 +56,17 @@ public partial class SummaryPage : ContentPage
 
     private async void CopySummary_Clicked(object sender, EventArgs e)
     {
-        await Clipboard.Default.SetTextAsync(SummaryEditor.Text);
+        var text = _summaryEditor?.Text ?? string.Empty;
+        await Clipboard.Default.SetTextAsync(text);
         await DisplayAlert("Success", "Summary copied to clipboard.", "OK");
     }
 
     private async void ShareSummary_Clicked(object sender, EventArgs e)
     {
+        var text = _summaryEditor?.Text ?? string.Empty;
         await Share.Default.RequestAsync(new ShareTextRequest
         {
-            Text = SummaryEditor.Text,
+            Text = text,
             Title = "Service Visit Summary"
         });
     }
